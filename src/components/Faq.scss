@@ -1,0 +1,22 @@
+@import '../Variables';
+
+.faq{
+  background-color: $color-faq-background;
+  color: #fff;
+
+  .faq__card{
+    background-color: unset;
+    border: none;
+    .faq__head{
+      background-color: $color-faq-header;
+      text-decoration: none;
+      color: #fff;
+      
+    }
+    .btn-link{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+  
+}

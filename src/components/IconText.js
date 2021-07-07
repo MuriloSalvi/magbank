@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const IconText =({
   icon,
   size=1,
-  color = '#000',
+  color = '#fff',
   className ='',
   textClassName ='',
   children,
