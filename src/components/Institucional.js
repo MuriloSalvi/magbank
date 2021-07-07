@@ -31,13 +31,13 @@ return(
           <IconText icon ={faMobileAlt} color='#fff' className='mb-2'>
             Sem fila e sem burocacia
           </IconText>
-          <IconText icon ={faMobile} color ='#fff'>
+          <IconText icon ={faMobile} color ='#fff' className='mb-2'>
             Simples e prático
           </IconText>
-          <IconText icon ={faGlobe} color ='#fff'>
+          <IconText icon ={faGlobe} color ='#fff' className='mb-2'>
             Abertura de conta 100% online
           </IconText>
-          <IconText icon ={faShieldAlt} color ='#fff'>
+          <IconText icon ={faShieldAlt} color ='#fff' className='mb-2'>
             Transações mais seguras
           </IconText>
         </div>
