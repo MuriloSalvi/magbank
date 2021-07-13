@@ -6,13 +6,14 @@ const IconText =({
   icon,
   size=1,
   color = '#fff',
-  className ='',
+  className ='faq__icon mb-3',
   textClassName ='',
   children,
   onClick,
+ 
 })=>{
   return(
-    <Row className ={`d-flex align-items-center ${className}`} onclick={onClick}>
+    <Row className ={`faq_icon d-flex align-items-center ${className}`} onClick={onClick}>
       <Col xs={size} className ='d-flex justify-content-center'>
         <FontAwesomeIcon icon ={icon} size={`${size}x`} color={color}></FontAwesomeIcon>
       </Col>

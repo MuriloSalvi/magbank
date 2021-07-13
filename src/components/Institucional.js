@@ -13,7 +13,7 @@ const Institucional =()=>{
 return(
   <section className='institucional text-light py-5'>
     <Container>
-    <Row ClassName>
+    <Row>
     <Col xs={12} lg={5} />
       <Col xs={12} lg={7}>
         <h2 className='intitucional__title my-5'>Já Nascemos digital</h2>

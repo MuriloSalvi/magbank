@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Row, Col, Accordion, Card, Button } from "react-bootstrap";
+import React, {useState, useEffect} from "react";
+import { Container, Row, Col, Accordion, Card } from "react-bootstrap";
 import IconText from "./IconText";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,52 +12,66 @@ import {
 import "./Faq.scss";
 
 const Faq = () => {
+  const options = [
+    {icon:faCreditCard, text:'Cartão de crédito e débito'},
+    {icon: faWallet, text:'Conta e abertura'},
+    {icon:faShieldAlt, text:'Tolken digital'},
+    {icon:faUserTie, text:'Produtos e serviços'}
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  const handleClick = key =>{
+    setIndex(key)
+  }
+  useEffect(()=>{
+    
+  }, [index])
+
   return (
     <section className="faq">
-      <Container classNmae="py-5 ">
+      <Container className="py-5 ">
         <Row>
           <h2 className='my-5 text-center'>Dúvidas frequentes</h2>
         </Row>
         <Row>
           <Col className="d-none mb-5 mt-2 d-lg-block aling-items-center justify-content-center">
-            <IconText size={3} icon={faCreditCard} className='mb-3'>
-              Cartão de crédito e débito
+            {options.map(({icon, text}, key)=>(
+              <IconText 
+              color = {key === index ? '#fff' : '#bbb'}
+              size={3} 
+              icon={icon} 
+              className=' faq__icon mb-3'
+             onClick={()=> handleClick(key)} key={key}>
+              {text}
             </IconText>
-            <IconText size={3} icon={faWallet} className='mb-3'>
-              Conta e abertura
-            </IconText>
-            <IconText size={3} icon={faShieldAlt} className='mb-3'>
-              Tolken digital
-            </IconText>
-            <IconText size={3} icon={faUserTie}>
-              Produtos e serviços
-            </IconText>
+            ))}
+            
           </Col>
           <Col className="d-lg-none text-center" xs={12}>
             <Row>
-              <Col>
-                <FontAwesomeIcon icon={faCreditCard} size="2x" className='mt-0'/>
+              {options.map(({icon}, key)=>(
+                <Col key={key}>
+                <FontAwesomeIcon icon={icon} size="2x" className='mt-0 ' onClick={()=> handleClick(key)} key={key}/>
               </Col>
-              <Col>
-                <FontAwesomeIcon icon={faWallet} size="2x" className='mt-0'/>
-              </Col>
-              <Col>
-                <FontAwesomeIcon icon={faShieldAlt} size="2x" className='mt-0'/>
-              </Col>
-              <Col>
-                <FontAwesomeIcon icon={faUserTie} size="2x" className='mt-0'/>
-              </Col>
+              ))}
+              
+            </Row>
+            <Row className='justify-content-center mt-5'>
+              <p className='lead'>
+                {options[index].text}
+              </p>
             </Row>
           </Col>
 
           <Col>
-            <Accordion className='mb-5 mt-5'>
+            <Accordion className='mb-5 mt-3' defaultActiveKey={index} activeKey={`${index}`}>
               <Card className='faq__card'>
-                <Card.Header className='faq__head'>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="0" >
+                <div className='faq__head'>
+                  <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" >
                   Lorem ipsum dolor sit amet.
                   </Accordion.Toggle>
-                </Card.Header>
+                </div>
                 <Accordion.Collapse eventKey="0">
                   <Card.Body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -72,11 +86,11 @@ const Faq = () => {
                 </Accordion.Collapse>
               </Card>
               <Card className='faq__card'>
-                <Card.Header className='faq__head'>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                <div className='faq__head'>
+                  <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
                   Lorem ipsum dolor sit amet.
                   </Accordion.Toggle>
-                </Card.Header>
+                </div>
                 <Accordion.Collapse eventKey="1">
                   <Card.Body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -91,11 +105,11 @@ const Faq = () => {
                 </Accordion.Collapse>
               </Card>
               <Card className='faq__card'>
-                <Card.Header className='faq__head'>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="2" > 
+                <div className='faq__head'>
+                  <Accordion.Toggle as={Card.Header} variant="link" eventKey="2" > 
                   Lorem ipsum dolor sit amet.
                   </Accordion.Toggle>
-                </Card.Header>
+                </div>
                 <Accordion.Collapse eventKey="2">
                   <Card.Body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -110,11 +124,11 @@ const Faq = () => {
                 </Accordion.Collapse>
               </Card>
               <Card className='faq__card'>
-                <Card.Header className='faq__head'>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="3" >
+                <div className='faq__head'>
+                  <Accordion.Toggle as={Card.Header} variant="link" eventKey="3" >
                   Lorem ipsum dolor sit amet.
                   </Accordion.Toggle>
-                </Card.Header>
+                </div>
                 <Accordion.Collapse eventKey="3">
                   <Card.Body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
