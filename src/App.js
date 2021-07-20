@@ -1,33 +1,36 @@
-import React,{useState} from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer'
-import AcconuntModal from './components/AccountModal';
-import Home from './views/Home'
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import AcconuntModal from "./components/AccountModal";
 
-import './App.scss';
+import Home from "./views/Home";
+import Login from './views/Login'
+import Dashbord from './views/Dashbord'
 
-const App = ()=>{
- const [showModal, setShowModal] =useState(true);
+import "./App.scss";
+
+const App = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <Router>
-      <Navbar handleCreateAcc={()=>setShowModal(true)}/>
+      <Navbar handleCreateAcc={() => setShowModal(true)} />
       <Switch>
-        <Route path='/'>
-          <Home heandleClick={()=>setShowModal(true)}/>
+        <Route path="/" exact>
+          <Home heandleClick={() => setShowModal(true)} />
+        </Route>
+        <Route path='/login'>
+          <Login/>
+        </Route>
+        <Route path='/dashbord'>
+          <Dashbord/>
         </Route>
       </Switch>
-      <Footer/>
-      <AcconuntModal show={showModal} handleClose={()=> setShowModal(false)}/>
+      <Footer />
+      <AcconuntModal show={showModal} handleClose={() => setShowModal(false)} />
     </Router>
-    
   );
-}
+};
 
 export default App;

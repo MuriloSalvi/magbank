@@ -24,7 +24,7 @@ const AcconuntModal = ({ show, handleClose }) => (
             id="formCitySelect"
             custom
           >
-            <option value='0'></option>
+            <option value="0"></option>
             <option value="1">Curitiba</option>
             <option value="2">Cornélio crocópio</option>
             <option value="3">São paulo</option>
@@ -34,11 +34,13 @@ const AcconuntModal = ({ show, handleClose }) => (
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        
+
         <Form.Group>
-          <Form.Check type='checkbox' label='Li e concordo com os termos de uso.'></Form.Check>
+          <Form.Check
+            type="checkbox"
+            label="Li e concordo com os termos de uso."
+          ></Form.Check>
         </Form.Group>
-        
       </Form>
     </Modal.Body>
     <Modal.Footer>

@@ -1,0 +1,49 @@
+@import '../_Variables.scss';
+
+.dashbord{
+position: relative;
+/*========= Informações do usuário ==========*/
+  &__user{
+    position: relative;
+    top: -5%;
+    left: 10%;
+  }
+  &__user-icon{
+    position: absolute;
+    top: 0%;
+    left: -0%;
+    transform: translate(26%, -5%);
+  }
+  .dashbord__button{
+    text-align: left;
+    width: 100%;
+    text-decoration: none;
+    color: $color-primary;
+    font-size: 1rem;
+    &:hover, &--active{
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+/*========saldo==========*/
+ .dashbord__balance{
+   margin-top: 7rem;
+   padding-left: 3rem;
+    @media(max-width: 800px){
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+    &--label{
+      color: #28a745;
+      
+    }
+   
+ }
+
+ .dashboard__tab{
+   @media(max-width: 800px){
+     padding: 0;
+     margin: 0;
+   }
+ }
+}
