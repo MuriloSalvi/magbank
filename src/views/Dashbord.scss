@@ -20,15 +20,19 @@ position: relative;
     text-decoration: none;
     color: $color-primary;
     font-size: 1rem;
-    &:hover, &--active{
-      background-color: $color-primary;
+    &:hover{
+      background-color: $color-muted;
       color: #fff;
+    }
+    &--active{
+      background-color: $color-primary;
+      color: #fff
     }
   }
 /*========saldo==========*/
  .dashbord__balance{
    margin-top: 7rem;
-   padding-left: 3rem;
+   padding-left: 1rem;
     @media(max-width: 800px){
       margin-top: 2rem;
       margin-bottom: 0;

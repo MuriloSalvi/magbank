@@ -11,7 +11,7 @@ const Home = ({heandleClick})=>{
  ;
   return (
       <>
-      <Hero/>
+      <Hero onClick={heandleClick}/>
       <CreditCard/>
       <CardList posts={posts}/>
       <CenteredButton onClick={heandleClick}><b>Abra sua conta</b></CenteredButton>

@@ -9,7 +9,7 @@ const Navigation = ({handleCreateAcc}) => {
    
     <Navbar variant = 'dark' expand="lg">
       <Container>
-      <Navbar.Brand href="#home"><img
+      <Navbar.Brand href="/"><img
         src={logo}
         height="30"
         className="d-inline-block align-top"
@@ -18,9 +18,9 @@ const Navigation = ({handleCreateAcc}) => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Cartão</Nav.Link>
-          <Nav.Link href="#link">Quem somos</Nav.Link>
-          <Nav.Link href="#faq">FAQ</Nav.Link>
+          <Nav.Link href="/">Cartão</Nav.Link>
+          <Nav.Link href="">Quem somos</Nav.Link>
+          <Nav.Link href="">FAQ</Nav.Link>
         </Nav>
         
         <ButtonGroup aria-label="Basic example" title ='Acessar Minha Conta' id ='basic-nav-dropdown'>
