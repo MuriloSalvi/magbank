@@ -5,11 +5,14 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 
-import Balance from "../components/Dashbord/Balance";
+import AccountBalance from "../components/Dashbord/AccountBalance";
+import AcccountPayment from "../components/Dashbord/AccountPayment";
+import AccountHistory from "../components/Dashbord/AccountHistory";
+import data from '../data/data'
 import "./Dashbord.scss";
-import Payment from "../components/Dashbord/Payment";
 
-const Dashbord = () => {
+
+const Dashbord = ({ calssName= false, name, account }) => {
   const [activeLink, setActiveLink] = useState(0)
 
   const links = [
@@ -17,6 +20,7 @@ const Dashbord = () => {
     {text: 'Pagamentos' , path:'/dashbord/payments'},
     {text:'Extrato', path:'/dashbord/balance'}
   ];
+
 
 
   return (
@@ -36,8 +40,8 @@ const Dashbord = () => {
               </span>
             </Col>
             <Col xs={8} className="mb-0 mt-2">
-              <h4>Murilo Furlan</h4>
-              <p className="text-muted">agência: 1234 cc:4321-5</p>
+              <h4>{name}</h4>
+              <p className="text-muted">agência: 00001 cc:{account}</p>
             </Col>
           </Row>
           {links.map(({text,path,exact},key)=>(
@@ -59,13 +63,13 @@ const Dashbord = () => {
 
         <Switch>
           <Route path="/dashbord/payments">
-            <Payment/>
+           <AcccountPayment/>
           </Route>
           <Route path="/dashbord/balance">
-            <h2>Extrato</h2>
+            <AccountHistory data={data}/>
           </Route>
           <Route path="/dashbord">
-            <Balance />
+            <AccountBalance data={data}/>
           </Route>
         </Switch>
       </Row>

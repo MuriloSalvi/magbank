@@ -1,22 +1,26 @@
-import React from "react";
-import { Tabs, Tab, Table } from "react-bootstrap";
-import "./Tables.scss";
+import React from 'react';
+import {Button, Col,Tabs,Tab,Table} from 'react-bootstrap';
 
-const Tables = () => {
-  const data = [
-    { date: "25/07", description: "Netflix", value: "30,00" ,id: 1 },
-    { date: "22/07", description: "posto petrobrás", value: "50,00" ,id: 2},
-    { date: "17/07", description: "Borracharia carlão", value: "570,00" ,id: 3},
-    { date: "17/07", description: "Mc Donalds", value: "35,00" ,id: 4},
-    { date: "17/07", description: "Big_supermercados", value: "257,80" ,id: 5},
-    { date: "17/07", description: "sem ideia", value: "10,00" ,id: 6},
-    { date: "17/07", description: "aaaaa", value: "30,00" ,id: 7},
-  ];
-  const future = [
-    { date: "15/07", description: "manutenção de conta", value: "15,00",id: 1 },
-    { date: "15/07", description: "prest_habitação", value: "650,00",id: 2 },
-  ];
+import './AccountBalance.scss'
+
+const AccountBalance = ({data})=> {
+  const {latestBalance, futureBalance} = data;
   return (
+    <>
+    <Col xs={12} lg={3} className="mt-3 mt-lg-5 pt-lg-5 dashbord__balance">
+    <h3 className="mb-5 mb-lg-5">Conta corrente</h3>
+      <h6>Saldo em conta corrente</h6>
+      <h4 className="dashbord__balance--label mb-4">
+        <small>R$</small>3500<small>,00</small>
+      </h4>
+      <h6 className="mb-3">Cheque especial</h6>
+      <div className="mb-3">
+        <p className="mb-0">Limite disponivel</p>
+        <p>R$5.000,00</p>
+      </div>
+      <Button variant="secondary">Ver extrato</Button>
+    </Col>
+    <Col xs={12} lg={5} className="dashboard__tab mt-lg-5">
     <Tabs
       defaultActiveKey="1"
       id="uncontrolled-tab-example"
@@ -32,7 +36,7 @@ const Tables = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map(({ date, description, value, index }) => (
+            {latestBalance.map(({ date,description,value }) => (
               <tr>
                 <td>{date}</td>
                 <td>{description}</td>
@@ -52,7 +56,7 @@ const Tables = () => {
             </tr>
           </thead>
           <tbody>
-            {future.map(({ date, description, value }) => (
+            {futureBalance.map(({ date, description, value }) => (
               <tr>
                 <td>{date}</td>
                 <td>{description}</td>
@@ -63,7 +67,10 @@ const Tables = () => {
         </Table>
       </Tab>
     </Tabs>
-  );
-};
+    </Col>
+    </>
+    
+  )
+}
 
-export default Tables;
+export default AccountBalance
