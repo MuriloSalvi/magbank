@@ -38,20 +38,21 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar handleCreateAcc={() => setShowModal(true)} />
+      <Navbar handleCreateAcc={() => setShowModal(true)} logged ={isLogged} auth={fakeAuth}/>
       <Switch>
         <Route path="/" exact>
           <Home heandleClick={() => setShowModal(true)} />
         </Route>
         <Route path='/login'>
-          <Login auth={fakeAuth}/>
+          <Login auth={fakeAuth} text='Entrar'/>
         </Route>
+        
         <PrivateRoute path='/dashbord' logged={isLogged}>
-          <Dashbord name={name} account={account}/>
+          <Dashbord name={name} account={account} logged={isLogged}/>
         </PrivateRoute>
       </Switch>
       <Footer />
-      <AcconuntModal show={showModal} handleClose={() => setShowModal(false)} />
+      <AcconuntModal show={showModal} auth={fakeAuth} handleClose={() => setShowModal(false)} />
     </Router>
   );
 };
